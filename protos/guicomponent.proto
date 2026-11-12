@@ -1,0 +1,41 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.guiapp.robot";
+option java_outer_classname = "RemoteRobotProto";
+
+package robot;
+
+service Robot {
+
+    rpc click (Component) returns (GuiResponse) {};
+
+    rpc setText (ComponentEditor) returns (GuiResponse) {};
+
+    rpc getText (Component) returns (GuiResponse) {};
+}
+
+message Component {
+    optional string name = 1;
+}
+
+message ComponentEditor {
+    optional Component component = 1;
+    optional string text = 2;
+}
+
+message GuiResponse {
+    optional Status status = 1;
+    optional string message = 2; 
+}
+
+enum Status {
+    STATUS_UNSPECIFIED = 0;
+    STATUS_SUCCESS = 1;
+    STATUS_COMPONENT_NOT_FOUND = 2;
+    STATUS_COMMAND_NOT_AVAILABLE = 3;
+    STATUS_COMPONENT_DISABLED = 4;
+    STATUS_COMPONENT_NOT_FOCUSED = 5;
+    STATUS_WRONG_SIZE = 6;
+}
