@@ -14,3 +14,6 @@ Take Screenshot
     Save Screenshot    ${filename}
     Log                <img src=${filename} width="900px">    html=True
 
+Manual Action
+    [Arguments]       @{args}
+    Log to Console    @{args}
