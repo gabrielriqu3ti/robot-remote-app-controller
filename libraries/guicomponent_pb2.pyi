@@ -44,3 +44,21 @@ class GuiResponse(_message.Message):
     status: Status
     message: str
     def __init__(self, status: _Optional[_Union[Status, str]] = ..., message: _Optional[str] = ...) -> None: ...
+
+class ScreenshotRequest(_message.Message):
+    __slots__ = ("description",)
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    description: str
+    def __init__(self, description: _Optional[str] = ...) -> None: ...
+
+class ScreenshotResponse(_message.Message):
+    __slots__ = ("status", "image", "imageFormat", "description")
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    IMAGEFORMAT_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    status: Status
+    image: bytes
+    imageFormat: str
+    description: str
+    def __init__(self, status: _Optional[_Union[Status, str]] = ..., image: _Optional[bytes] = ..., imageFormat: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...

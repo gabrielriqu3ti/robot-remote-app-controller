@@ -49,6 +49,11 @@ class RobotStub:
                 request_serializer=guicomponent__pb2.Component.SerializeToString,
                 response_deserializer=guicomponent__pb2.GuiResponse.FromString,
                 _registered_method=True)
+        self.takeScreenshot = channel.unary_unary(
+                '/robot.Robot/takeScreenshot',
+                request_serializer=guicomponent__pb2.ScreenshotRequest.SerializeToString,
+                response_deserializer=guicomponent__pb2.ScreenshotResponse.FromString,
+                _registered_method=True)
 
 
 class RobotServicer:
@@ -72,6 +77,12 @@ class RobotServicer:
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def takeScreenshot(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RobotServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -89,6 +100,11 @@ def add_RobotServicer_to_server(servicer, server):
                     servicer.getText,
                     request_deserializer=guicomponent__pb2.Component.FromString,
                     response_serializer=guicomponent__pb2.GuiResponse.SerializeToString,
+            ),
+            'takeScreenshot': grpc.unary_unary_rpc_method_handler(
+                    servicer.takeScreenshot,
+                    request_deserializer=guicomponent__pb2.ScreenshotRequest.FromString,
+                    response_serializer=guicomponent__pb2.ScreenshotResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -172,6 +188,33 @@ class Robot:
             '/robot.Robot/getText',
             guicomponent__pb2.Component.SerializeToString,
             guicomponent__pb2.GuiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def takeScreenshot(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/robot.Robot/takeScreenshot',
+            guicomponent__pb2.ScreenshotRequest.SerializeToString,
+            guicomponent__pb2.ScreenshotResponse.FromString,
             options,
             channel_credentials,
             insecure,

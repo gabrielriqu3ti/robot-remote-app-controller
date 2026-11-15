@@ -18,17 +18,22 @@ Test Button Can Be Clicked
 
 Test Button Copies Text Written at Text Field to Label
     [Tags]             requirement 3
+    Type Text          App.JTextField.inputText    Insert text here...
+    Take Screenshot    app_before_robot.png
     Type Text          App.JTextField.inputText    Text to be copied.
     Click              App.JButton.copyText
     ${text}=           Get Text    App.JLabel.copiedText
+    Take Screenshot    app_after_robot.png
     Should Be Equal    ${text}    Text to be copied.
 
 Failed Test Button Copies Text Written at Text Field to Label
     [Documentation]    This test is meant to fail to show how the robot works.
     [Tags]             requirement 3    -positive    negative
     Type Text          App.JTextField.inputText    Text to be copied.
+    Take Screenshot    app_before_failed_test_robot.png
     Click              App.JButton.copyText
     ${text}=           Get Text    App.JLabel.copiedText
+    Take Screenshot    app_after_failed_test_robot.png
     Should Be Equal    ${text}    Different than text to be copied.
 
 Skipped Test Button Copies Text Written at Text Field to Label

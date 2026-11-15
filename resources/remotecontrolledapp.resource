@@ -9,3 +9,8 @@ Connect to App
 Disconnect from App
     Disconnect
 
+Take Screenshot
+    [Arguments]        ${filename}
+    Save Screenshot    ${filename}
+    Log                <img src=${filename} width="900px">    html=True
+

@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12guicomponent.proto\x12\x05robot\"\'\n\tComponent\x12\x11\n\x04name\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\x07\n\x05_name\"e\n\x0f\x43omponentEditor\x12(\n\tcomponent\x18\x01 \x01(\x0b\x32\x10.robot.ComponentH\x00\x88\x01\x01\x12\x11\n\x04text\x18\x02 \x01(\tH\x01\x88\x01\x01\x42\x0c\n\n_componentB\x07\n\x05_text\"^\n\x0bGuiResponse\x12\"\n\x06status\x18\x01 \x01(\x0e\x32\r.robot.StatusH\x00\x88\x01\x01\x12\x14\n\x07message\x18\x02 \x01(\tH\x01\x88\x01\x01\x42\t\n\x07_statusB\n\n\x08_message*\xce\x01\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATUS_SUCCESS\x10\x01\x12\x1e\n\x1aSTATUS_COMPONENT_NOT_FOUND\x10\x02\x12 \n\x1cSTATUS_COMMAND_NOT_AVAILABLE\x10\x03\x12\x1d\n\x19STATUS_COMPONENT_DISABLED\x10\x04\x12 \n\x1cSTATUS_COMPONENT_NOT_FOCUSED\x10\x05\x12\x15\n\x11STATUS_WRONG_SIZE\x10\x06\x32\xa4\x01\n\x05Robot\x12/\n\x05\x63lick\x12\x10.robot.Component\x1a\x12.robot.GuiResponse\"\x00\x12\x37\n\x07setText\x12\x16.robot.ComponentEditor\x1a\x12.robot.GuiResponse\"\x00\x12\x31\n\x07getText\x12\x10.robot.Component\x1a\x12.robot.GuiResponse\"\x00\x42&\n\x10org.guiapp.robotB\x10RemoteRobotProtoP\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12guicomponent.proto\x12\x05robot\"\'\n\tComponent\x12\x11\n\x04name\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\x07\n\x05_name\"e\n\x0f\x43omponentEditor\x12(\n\tcomponent\x18\x01 \x01(\x0b\x32\x10.robot.ComponentH\x00\x88\x01\x01\x12\x11\n\x04text\x18\x02 \x01(\tH\x01\x88\x01\x01\x42\x0c\n\n_componentB\x07\n\x05_text\"^\n\x0bGuiResponse\x12\"\n\x06status\x18\x01 \x01(\x0e\x32\r.robot.StatusH\x00\x88\x01\x01\x12\x14\n\x07message\x18\x02 \x01(\tH\x01\x88\x01\x01\x42\t\n\x07_statusB\n\n\x08_message\"=\n\x11ScreenshotRequest\x12\x18\n\x0b\x64\x65scription\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\x0e\n\x0c_description\"\xb5\x01\n\x12ScreenshotResponse\x12\"\n\x06status\x18\x01 \x01(\x0e\x32\r.robot.StatusH\x00\x88\x01\x01\x12\x12\n\x05image\x18\x02 \x01(\x0cH\x01\x88\x01\x01\x12\x18\n\x0bimageFormat\x18\x03 \x01(\tH\x02\x88\x01\x01\x12\x18\n\x0b\x64\x65scription\x18\x04 \x01(\tH\x03\x88\x01\x01\x42\t\n\x07_statusB\x08\n\x06_imageB\x0e\n\x0c_imageFormatB\x0e\n\x0c_description*\xce\x01\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATUS_SUCCESS\x10\x01\x12\x1e\n\x1aSTATUS_COMPONENT_NOT_FOUND\x10\x02\x12 \n\x1cSTATUS_COMMAND_NOT_AVAILABLE\x10\x03\x12\x1d\n\x19STATUS_COMPONENT_DISABLED\x10\x04\x12 \n\x1cSTATUS_COMPONENT_NOT_FOCUSED\x10\x05\x12\x15\n\x11STATUS_WRONG_SIZE\x10\x06\x32\xed\x01\n\x05Robot\x12/\n\x05\x63lick\x12\x10.robot.Component\x1a\x12.robot.GuiResponse\"\x00\x12\x37\n\x07setText\x12\x16.robot.ComponentEditor\x1a\x12.robot.GuiResponse\"\x00\x12\x31\n\x07getText\x12\x10.robot.Component\x1a\x12.robot.GuiResponse\"\x00\x12G\n\x0etakeScreenshot\x12\x18.robot.ScreenshotRequest\x1a\x19.robot.ScreenshotResponse\"\x00\x42&\n\x10org.guiapp.robotB\x10RemoteRobotProtoP\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,14 +32,18 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'guicomponent_pb2', _globals
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\020org.guiapp.robotB\020RemoteRobotProtoP\001'
-  _globals['_STATUS']._serialized_start=270
-  _globals['_STATUS']._serialized_end=476
+  _globals['_STATUS']._serialized_start=517
+  _globals['_STATUS']._serialized_end=723
   _globals['_COMPONENT']._serialized_start=29
   _globals['_COMPONENT']._serialized_end=68
   _globals['_COMPONENTEDITOR']._serialized_start=70
   _globals['_COMPONENTEDITOR']._serialized_end=171
   _globals['_GUIRESPONSE']._serialized_start=173
   _globals['_GUIRESPONSE']._serialized_end=267
-  _globals['_ROBOT']._serialized_start=479
-  _globals['_ROBOT']._serialized_end=643
+  _globals['_SCREENSHOTREQUEST']._serialized_start=269
+  _globals['_SCREENSHOTREQUEST']._serialized_end=330
+  _globals['_SCREENSHOTRESPONSE']._serialized_start=333
+  _globals['_SCREENSHOTRESPONSE']._serialized_end=514
+  _globals['_ROBOT']._serialized_start=726
+  _globals['_ROBOT']._serialized_end=963
 # @@protoc_insertion_point(module_scope)

@@ -14,6 +14,8 @@ service Robot {
     rpc setText (ComponentEditor) returns (GuiResponse) {};
 
     rpc getText (Component) returns (GuiResponse) {};
+
+    rpc takeScreenshot (ScreenshotRequest) returns (ScreenshotResponse) {};
 }
 
 message Component {
@@ -28,6 +30,17 @@ message ComponentEditor {
 message GuiResponse {
     optional Status status = 1;
     optional string message = 2; 
+}
+
+message ScreenshotRequest {
+    optional string description = 1;
+}
+
+message ScreenshotResponse {
+    optional Status status = 1;
+    optional bytes image = 2;
+    optional string imageFormat = 3;
+    optional string description = 4;
 }
 
 enum Status {

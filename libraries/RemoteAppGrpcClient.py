@@ -1,7 +1,10 @@
 
+import io
 import logging
+from PIL import Image
 import grpc
 from guicomponent_pb2 import Component, ComponentEditor, GuiResponse
+from guicomponent_pb2 import ScreenshotRequest, ScreenshotResponse
 from guicomponent_pb2_grpc import RobotStub
 
 
@@ -71,6 +74,23 @@ class RemoteAppGrpcClient:
         else:
             print(f"ERROR: response of type {type(response)}")
             return ""
+
+
+    def save_screenshot(self, filename: str):
+        if self.stub is None:
+            raise ValueError(f"Disconnected from remote controlled app")
+
+        print("Trying to take screenshot...")
+        response = self.stub.takeScreenshot(ScreenshotRequest(description=filename))
+        if isinstance(response, ScreenshotResponse):
+            print(f"Received status {response.status} with message '{response.description}'")
+            image_stream = io.BytesIO(response.image)
+            with Image.open(image_stream) as image:
+                print(f"Image format={image.format} size={image.size} mode={image.mode}")
+                image.save(filename)
+                print(f"Image saved to file {filename}")
+        else:
+            print(f"ERROR: response of type {type(response)}")
 
 
 
